@@ -1,14 +1,14 @@
 'use strict'
-
 const path = require('path')
-const fse = require('fs-extra')
+const fs = require('fs')
+const mkdirp = require('mkdirp')
 const chalk = require('chalk')
 const svg2png = require('svg2png')
 
 module.exports = function(cacheDir, svgPath) {
 	// Initialisation
-	const svgModified = fse.statSync(svgPath).mtime
-	fse.ensureDirSync(cacheDir)
+	const svgModified = fs.statSync(svgPath).mtime
+	mkdirp.sync(cacheDir)
 
 
 	//
@@ -22,23 +22,23 @@ module.exports = function(cacheDir, svgPath) {
 
 	// Check if a (PNG) file is newer than the SVG file
 	function isOlderThanSvg(pngPath) {
-		return fse.statSync(pngPath).mtime < svgModified
+		return fs.statSync(pngPath).mtime < svgModified
 	}
 
 	// Check if (PNG) file either doesn't exist or is outdated
 	function isPngAbsentOrOutdated(pngPath) {
-		return !fse.existsSync(pngPath) || isOlderThanSvg(pngPath)
+		return !fs.existsSync(pngPath) || isOlderThanSvg(pngPath)
 	}
 
 	// Generate PNG from SVG
 	function generatePng(size, outputPath) {
 		console.log(chalk.bold.blue(`Generating ${outputPath}...`))
-		const svgBuffer = fse.readFileSync(svgPath)
+		const svgBuffer = fs.readFileSync(svgPath)
 		const pngBuffer = svg2png.sync(svgBuffer, {
 			width: size,
 			height: size
 		})
-		fse.writeFileSync(outputPath, pngBuffer)
+		fs.writeFileSync(outputPath, pngBuffer)
 	}
 
 

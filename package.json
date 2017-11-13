@@ -1,14 +1,22 @@
 {
   "name": "one-svg-to-many-sized-pngs",
-  "version": "0.1.0",
-  "description": "Converts one SVG file to PNGs of various sizes",
-  "author": "Matthew Tylee Atkinson",
-  "license": "GPL",
+  "version": "0.1.1",
   "private": true,
+  "description": "Converts one SVG file to PNGs of various sizes",
+  "license": "GPL",
+  "author": "Matthew Tylee Atkinson",
   "main": "one-svg-to-many-sized-pngs.js",
+  "scripts": {
+    "precommit": "npm run test",
+    "test": "eslint ."
+  },
   "dependencies": {
-    "chalk": "~2.1.0",
-    "fs-extra": "~4.0.1",
-    "svg2png": "~4.1.1"
+    "chalk": "~2.3",
+    "mkdirp": "~0.5",
+    "svg2png": "~4.1"
+  },
+  "devDependencies": {
+    "eslint": "~4.11",
+    "husky": "~0.14"
   }
 }
