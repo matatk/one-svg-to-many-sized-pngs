@@ -1,10 +1,3 @@
 .DS_Store
 *.swp
 node_modules
-build
-_site
-landmarks-chrome-out.png
-landmarks-opera-out.png
-landmarks-*.zip
-npm-debug.log
-test/test-code-in-harness.js
