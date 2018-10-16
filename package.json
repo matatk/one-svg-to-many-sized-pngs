@@ -1,6 +1,6 @@
 {
   "name": "one-svg-to-many-sized-pngs",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "description": "Converts one SVG file to PNGs of various sizes",
   "license": "GPL",
@@ -16,7 +16,7 @@
     "svg2png": "~4.1"
   },
   "devDependencies": {
-    "eslint": "~4.11",
+    "eslint": "~5.7",
     "husky": "~0.14"
   }
 }

@@ -5,7 +5,7 @@ const mkdirp = require('mkdirp')
 const chalk = require('chalk')
 const svg2png = require('svg2png')
 
-module.exports = function(cacheDir, svgPath) {
+module.exports = function(cacheDir, baseName, svgPath) {
 	// Initialisation
 	const svgModified = fs.statSync(svgPath).mtime
 	mkdirp.sync(cacheDir)
@@ -17,7 +17,7 @@ module.exports = function(cacheDir, svgPath) {
 
 	// Return the full path to the desired PNG
 	function pngPath(size) {
-		return path.join(cacheDir, 'landmarks-' + size + '.png')
+		return path.join(cacheDir, baseName + '-' + size + '.png')
 	}
 
 	// Check if a (PNG) file is newer than the SVG file
