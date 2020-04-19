@@ -1,3 +1,7 @@
+**This project has been archived in favour of using [sharp](https://sharp.pixelplumbing.com/) directly.**
+
+---
+
 One SVG to many sized PNGs
 ==========================
 
